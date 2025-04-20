@@ -22,6 +22,8 @@ The dataset `ecommerce_customer_data_CLEANED.csv` contains the following feature
 - `age`, `customer_age`, `gender`
 - Derived features: `time_of_day`, `is_weekend`, `was_returned`, `spend_bucket`, etc.
 
+🔗 [**View the Kaggle Dataset here**](https://www.kaggle.com/datasets/shriyashjagtap/e-commerce-customer-for-behavior-analysis)
+
 ---
 
 ## ⚙️ Methods  
