@@ -35,10 +35,8 @@ The dataset `Cleaned_Drug_Deaths.csv` includes the following types of features:
 - 📈 Opioid-related deaths increased significantly over time
 - 🧑‍🦱 Adults aged 25–44 are at highest risk for fentanyl and heroin involvement
 - 🗺️ Cities like Hartford and New Haven exceed average fatality counts
-- 🕑 Most deaths occurred mid-week, not on weekends
-- 🚹 Males show higher opioid-related death rates and are classified as "High Risk"
-- 🧭 In 2022, New Haven and Hartford counties reported the most opioid deaths
-- 🧓 Certain age groups dominate specific years in drug death statistics
+- 🕑 Most deaths occurred on weekends
+- 🧭 In 2022, New Haven and Hartford counties reported the most opioid deaths with 537
 
 ---
 
@@ -88,7 +86,7 @@ These SQL queries support the following types of dashboards:
 ---
 
 ## 🧰 Tools Used
-- **Languages:** SQL (PostgreSQL), Python  
+- **Languages:** SQL (PostgreSQL), Python 
 - **Libraries:** `pandas`  
 - **Environments:** Jupyter Notebook, VSCode  
-- **Visualization Tools:** Tableau (planned)
+- **Visualization Tools:** Tableau
