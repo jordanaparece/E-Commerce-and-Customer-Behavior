@@ -1,110 +1,94 @@
-# E-Commerce Customer Churn Analysis
+# Connecticut Drug-Related Deaths Analysis
 
-## 🌟 Inspiration  
-Customer churn is one of the most important metrics in e-commerce, affecting both profitability and growth. Understanding what behaviors and demographics are associated with higher churn helps e-commerce businesses take preemptive action.
+## 🌟 Inspiration
+Understanding the factors behind drug-related deaths is essential for public health agencies aiming to reduce opioid fatalities. By exploring demographic and geographic patterns, this project helps uncover where and why high-risk overdoses are happening—supporting targeted interventions.
 
 ---
 
-## 📈 Project Overview  
-This project explores a cleaned dataset of e-commerce transactions to uncover behavioral and transactional patterns that contribute to customer churn. The analysis combines SQL-based exploratory data analysis (EDA) with Python-based data cleaning in Jupyter Notebooks.
+## 📈 Project Overview
+This project investigates opioid-related and non-opioid-related deaths in Connecticut using a cleaned dataset of medical examiner records. The analysis blends SQL-based EDA with Python-based data cleaning to highlight trends, risk factors, and actionable geographic and demographic insights.
 
 **Main Business Question:**  
-> What behavioral and transactional factors most strongly correlate with customer churn, and how do they vary by demographic and shopping patterns?
+*What demographic and geographic factors most strongly correlate with high-risk opioid-related deaths in Connecticut, and how can public health outreach be optimized to reduce future deaths?*
 
 ---
 
-## 📊 Data Overview  
-The dataset `ecommerce_customer_data_CLEANED.csv` contains the following features:
+## 📊 Data Overview
+The dataset `Cleaned_Drug_Deaths.csv` includes the following types of features:
 
-- `customer_id`, `customer_name`
-- `purchase_date`, `product_category`, `product_price`, `quantity`, `total_value`
-- `returns`, `payment_method`, `churn`
-- `age`, `customer_age`, `gender`
-- Derived features: `time_of_day`, `is_weekend`, `was_returned`, `spend_bucket`, etc.
-
-🔗 [**View the Kaggle Dataset here**](https://www.kaggle.com/datasets/shriyashjagtap/e-commerce-customer-for-behavior-analysis)
+- **Demographics:** `age`, `sex`, `ethnicity`, `age_group`
+- **Location Info:** `residence_city`, `injury_city`, `death_city`, `county`, `state`
+- **Drug Presence (Y/N):** `heroin`, `fentanyl`, `cocaine`, `methadone`, etc.
+- **Death Context:** `manner_of_death`, `cause_of_death`, `injury_place`, `description_of_injury`
+- **Derived Variables:** `weekday`, `residencecitygeo`, `injurycitygeo`, `deathcitygeo`
 
 ---
 
-## ⚙️ Methods  
-- **SQL (PostgreSQL)**: Used for querying, grouping, filtering, CTEs, subqueries, and window functions  
-- **Python (Jupyter Notebook)**: Used for data cleaning, feature engineering  
-- **EDA Techniques**: Aggregation, segmentation, rolling metrics, customer ranking  
+## ⚙️ Methods
+- **SQL (PostgreSQL):** CTEs, window functions, filters, subqueries
+- **Python (Jupyter Notebook):** Missing value handling and standardization
+- **EDA Techniques:** Aggregation, classification, temporal trend analysis, ranking
 
 ---
 
-## 🔍 Major Findings  
-- ❌ Overall churn rate was 20.00%  
-- 🛍️ Weekend buyers experienced higher churn rates  
-- 🥇 Top 5 customers by spend had near-zero churn  
-- 📅 The highest churn rates are experienced in the afternoon, while the lowest are experienced in the evening 
-- 🔁 Return behavior and payment method type were strong churn predictors  
-- 💰 High spenders in the top 2 quartiles were more loyal
+## 🔍 Major Findings
+- 📈 Opioid-related deaths increased significantly over time
+- 🧑‍🦱 Adults aged 25–44 are at highest risk for fentanyl and heroin involvement
+- 🗺️ Cities like Hartford and New Haven exceed average fatality counts
+- 🕑 Most deaths occurred mid-week, not on weekends
+- 🚹 Males show higher opioid-related death rates and are classified as "High Risk"
+- 🧭 In 2022, New Haven and Hartford counties reported the most opioid deaths
+- 🧓 Certain age groups dominate specific years in drug death statistics
 
 ---
 
 ## 📌 SQL Queries Used
-- Churn rate by product category  
-- Average purchase behavior by churn status
-- Top 5 customers by total spend
-- Churn rate by age group
-- Return behavior and its effect on churn rate
-- Weekend vs weekday purchases and churn rate
-- Daily churn trends
-- High spend customers bu quartile
-- Payment method churn comparison
-- Most common time of day for churned transactions
-- Top 3 categories with the highest churn rate
-- Product categories that have higher than average churn rates
-
+- Year-over-year percent change in total deaths
+- Opioid vs non-opioid death classification
+- Fentanyl/heroin involvement by age group
+- Cities with above-average death counts
+- Deaths by weekday and percentage of total
+- Gender-based opioid risk flag
+- Top 5 counties in 2022 by opioid deaths
+- Most dangerous age group by year
 
 ---
 
-## 📊 Tableau Visualizations
-
-An interactive dashboard was built in Tableau to help stakeholders quickly explore churn trends and customer behavior patterns.
-
-🔗 [**View the Tableau Dashboard here**](https://public.tableau.com/app/profile/jordan.aparece/viz/E-CommerceandCustomerBehavior/ChurnRateDashboard)
-
-### Key Dashboards & Visual Insights:
-- **Churn Rate by Product Category** – Visualizes which product categories have higher customer drop-off.
-- **Churn by Age Group & Gender** – Segmentation of churn behavior across key demographics.
-- **Average Purchase by Churn Status** – Analyzes the differences between Churned and Not-Churned products across the metrics: average quantity, average spent, and average returns.
-- **Payment Method Churn Comparison** - Highlights the 4 different methods of payment, the churn rate for those methods, and the count of customers using each respective method.
-- **Most Common Time of Day for Churned Transactions** – Shows the churn rates for the different times of the day (morning, afternoon, evening, and night.
-- **Top 5 Customers by Total Spend** – Visualization that displays the overall rank, the customer name, the customer ID, and the total amount they spent.
-- **Top 3 Categories with the Highest Churn Rate** - Shows the overall rank, the product category, and their average churn rate.
-- **Return Behavior and its Effect on Churn Rate** - Compares the returned vs not-returned categories and their respective average churn rate.
-- **Weekend vs Weekday Purchases and Churn Rate** - Compares the average churn rate for purchases on the weekend vs the weekday.
-
-These visualizations support the SQL and Python-based findings, making the data more accessible for non-technical stakeholders and driving insight-backed decisions.
+## 📊 Tableau Visualizations (Optional/Future Additions)
+These SQL queries support the following types of dashboards:
+- **Trends Over Time:** Opioid and non-opioid death trends
+- **Demographic Risk:** Age, sex, and ethnicity breakdowns
+- **Geographic Risk:** County and city heatmaps
+- **Temporal Patterns:** Weekday vs weekend fatalities
 
 ---
 
-## ⚠️ Limitations  
-- `purchase_date` lacks timezone or session context  
-- `returns` field treated as binary; doesn’t capture return reasons  
-- Some missing values were imputed for gender and age  
-- No session or behavior tracking beyond transaction data
+## ⚠️ Limitations
+- Many null values were imputed (e.g., `ethnicity`, `injury_city`, `drug flags`)
+- Drug involvement is binary (Y/N); dosage data is unavailable
+- Death location may not reflect the person’s residence
+- No behavioral, medical, or substance use history included
 
 ---
 
-## 🔭 Further Investigation  
-- Predictive modeling (e.g., logistic regression, XGBoost, or random forest)  
-- Time-series churn forecasting (e.g., ARIMA, Prophet, LSTM)  
-- Unsupervised segmentation (K-means clustering)  
+## 🔭 Further Investigation
+- Forecasting future opioid deaths (ARIMA, Prophet)
+- Predictive modeling (logistic regression, XGBoost, random forest)
+- Clustering geographic hotspots
+- NLP analysis on cause/injury descriptions
 
 ---
 
-## 📂 Project Files  
-- `Data Cleaning.ipynb` – Python-based data cleaning and preparation  
-- `ecommerce_customer_data_CLEANED.csv` – Final cleaned dataset  
-- `EDA.sql` – All SQL used in this analysis
+## 📂 Project Files
+- `Cleaned_Drug_Deaths.csv` – Final dataset
+- `Data Cleaning.ipynb` – Python-based cleaning and null imputation
+- `Data Cleaning.sql` – SQL-based updates for standardizing and filling missing values
+- `EDA.sql` – SQL queries for deep exploration and business question analysis
 
 ---
 
-## 🧰 Tools Used  
-- **Languages**: SQL (PostgreSQL), Python  
-- **Libraries**: pandas 
-- **Environments**: Jupyter Notebook, VSCode  
-- **Visualization Tool**: Tableau
+## 🧰 Tools Used
+- **Languages:** SQL (PostgreSQL), Python  
+- **Libraries:** `pandas`  
+- **Environments:** Jupyter Notebook, VSCode  
+- **Visualization Tools:** Tableau (planned)
